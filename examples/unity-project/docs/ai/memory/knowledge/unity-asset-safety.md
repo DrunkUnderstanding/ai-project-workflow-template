@@ -1,22 +1,22 @@
-# Unity Asset Safety
+# Unity 资源安全
 
-> Read this before changing prefabs, scenes, `.meta` files, or asset references.
+> 修改 prefab、scene、`.meta` 文件或 asset references 前读取本文档。
 
-## Current Decision
+## 当前决策
 
-Unity production assets live under `Assets/` and must be treated as reference-sensitive data.
+Unity 生产资源位于 `Assets/`，必须视为引用敏感数据。
 
-## Rules
+## 规则
 
-- Do not move, rename, or delete production assets without a spec or plan.
-- Keep `.meta` files with their assets.
-- Do not hand-author GUIDs unless the active plan explicitly explains why.
-- Prefer Unity Editor operations for reference-sensitive changes when available.
-- Document affected prefabs, scenes, and ScriptableObjects in the plan.
+- 没有 spec 或 plan 时，不要移动、重命名或删除生产资源。
+- `.meta` 文件必须与对应资源保持在一起。
+- 除非当前 plan 明确解释原因，不要手写 GUID。
+- 对引用敏感变更，优先使用 Unity Editor 操作。
+- 在 plan 中记录受影响的 prefab、scene 和 ScriptableObject。
 
-## Verification
+## 验证
 
-- Confirm Unity can import the changed assets.
-- Confirm references on affected prefabs or scenes are still valid.
-- Run a compile check when scripts or serialized fields change.
+- 确认 Unity 能导入变更后的资源。
+- 确认受影响 prefab 或 scene 上的引用仍然有效。
+- 当 scripts 或 serialized fields 变化时，运行 compile check。
 

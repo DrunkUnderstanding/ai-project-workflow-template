@@ -22,6 +22,7 @@ CLAUDE.md
 docs/
   README.md
   ai/
+    policies/code-style.md
 specs/
   README.md
   _template/
@@ -56,6 +57,7 @@ Copy them into a Unity project when needed:
 
 ```text
 examples/unity-project/docs/ai/systems/unity-rules.md
+examples/unity-project/docs/project-structure.md
 examples/unity-project/docs/ai/memory/knowledge/unity-asset-safety.md
 examples/unity-project/docs/ai/memory/knowledge/unity-editor-automation.md
 ```

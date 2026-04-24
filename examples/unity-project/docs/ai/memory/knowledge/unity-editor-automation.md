@@ -1,21 +1,21 @@
-# Unity Editor Automation
+# Unity Editor 自动化
 
-> Read this before creating Unity editor tools, menu items, or batch asset operations.
+> 创建 Unity editor tools、menu items 或 batch asset operations 前读取本文档。
 
-## Current Decision
+## 当前决策
 
-Editor tooling must be isolated from runtime code.
+Editor tooling 必须与 runtime 代码隔离。
 
-## Rules
+## 规则
 
-- Put editor-only scripts under `Assets/Scripts/Editor/` or an Editor-only assembly.
-- Do not reference editor-only classes from runtime assemblies.
-- Prefer small, reversible tools with clear input and output.
-- For batch asset operations, explain the target paths and rollback strategy.
+- editor-only scripts 放在 `Assets/Scripts/Editor/` 或 Editor-only assembly 下。
+- runtime assemblies 不得引用 editor-only classes。
+- 优先创建小型、可回滚、输入输出清楚的工具。
+- 对 batch asset operations，说明目标路径和 rollback strategy。
 
-## Verification
+## 验证
 
-- Confirm runtime code does not reference `UnityEditor`.
-- Run a Unity compile check after editor script changes.
-- For batch operations, test on a small sample before broad changes.
+- 确认 runtime code 没有引用 `UnityEditor`。
+- 修改 editor script 后运行 Unity compile check。
+- 对 batch operations，先用小样本测试，再扩大范围。
 

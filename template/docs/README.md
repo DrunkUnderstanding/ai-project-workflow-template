@@ -13,4 +13,3 @@ This directory contains long-lived project documentation.
 Feature implementation specs do not belong under `docs/`.
 
 Use the root `specs/` directory for feature specs, implementation plans, and task lists.
-

@@ -1,38 +1,38 @@
-# Unity Rules
+# Unity 规则
 
-## Asset Safety
+## 资源安全
 
-Unity asset references are sensitive.
+Unity 资源引用很敏感。
 
-Do not casually move, rename, or delete files under `Assets/` because Unity `.meta` files and GUID references may be affected.
+不要随意移动、重命名或删除 `Assets/` 下的文件，因为 Unity `.meta` 文件和 GUID 引用可能受到影响。
 
-When moving or renaming Unity assets, the active spec must explain:
+移动或重命名 Unity 资源时，当前 spec 必须说明：
 
-- The reason for the move.
-- Which assets are affected.
-- How references will be preserved or verified.
+- 移动原因。
+- 受影响资源。
+- 如何保留或验证引用。
 
-## Unity Change Checklist
+## Unity 变更检查表
 
-For any change touching `Assets/`, answer these questions in the plan or final summary:
+任何触碰 `Assets/` 的变更，都应在 plan 或最终总结中回答：
 
-- Did this add, move, rename, or delete a Unity asset?
-- Did this affect any `.meta` file or GUID reference?
-- Did this affect any prefab, scene, ScriptableObject, material, animation, or import setting?
-- Does Unity need to reimport assets or compile scripts?
-- What is the rollback path if references break?
+- 是否新增、移动、重命名或删除了 Unity 资源？
+- 是否影响任何 `.meta` 文件或 GUID 引用？
+- 是否影响 prefab、scene、ScriptableObject、material、animation 或 import setting？
+- Unity 是否需要重新导入资源或编译脚本？
+- 如果引用损坏，回滚路径是什么？
 
-## `.meta` Files
+## `.meta` 文件
 
-Preserve Unity `.meta` files with their assets.
+Unity `.meta` 文件必须与对应资源一起保留。
 
-Do not hand-author GUIDs unless there is a documented reason and verification step.
+除非有文档说明原因和验证步骤，不要手写 GUID。
 
-If a new Unity asset is created outside the editor, allow Unity to generate or refresh its `.meta` file.
+如果在 Editor 外创建新的 Unity 资源，应允许 Unity 生成或刷新对应 `.meta` 文件。
 
-## Suggested Foundation Layout
+## 建议的基础目录
 
-The exact layout should be finalized by `specs/001-project-foundation/`, but the starting convention is:
+准确目录应由 `specs/001-project-foundation/` 最终确定，但起始约定如下：
 
 ```text
 Assets/
@@ -48,24 +48,25 @@ Assets/
   Settings/
 ```
 
-## C# Conventions
+## C# 约定
 
-Use clear names and small classes.
+使用清晰命名和小 class。
 
-Prefer explicit, readable code over clever abstractions.
+优先写显式、可读的代码，不优先追求聪明抽象。
 
-Avoid large framework decisions until a spec requires them.
+在 spec 要求之前，避免大型 framework 决策。
 
-## Runtime vs Editor Code
+## Runtime 与 Editor 代码
 
-Runtime code belongs under `Assets/Scripts/Runtime/`.
+runtime 代码属于 `Assets/Scripts/Runtime/`。
 
-Editor-only utilities belong under `Assets/Scripts/Editor/` and must not be referenced by runtime assemblies.
+editor-only 工具属于 `Assets/Scripts/Editor/`，且不能被 runtime assemblies 引用。
 
-## Data-Driven Design
+## 数据驱动设计
 
-Prefer data-driven gameplay where practical.
+在可行时优先使用数据驱动 gameplay。
 
-Avoid hardcoding tunable values into gameplay logic when the value is likely to be balanced or iterated.
+如果数值可能被平衡或反复迭代，不要把它硬编码到 gameplay logic 中。
 
-The first accepted data approach may be ScriptableObjects, JSON, or another documented format, but it must be specified before broad use.
+第一种被接受的数据方案可以是 `ScriptableObject`、JSON 或其他有文档说明的格式，但在广泛使用前必须先明确。
+
