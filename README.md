@@ -1,5 +1,7 @@
 # AI Project Workflow Template
 
+中文说明见：`docs/zh-CN/README.md`
+
 A reusable AI-assisted project workflow template for human-in-the-loop software development.
 
 The template gives every project a stable structure for:
@@ -71,4 +73,3 @@ examples/unity-project/docs/ai/memory/knowledge/unity-editor-automation.md
 Treat this repository as a reusable workflow kit.
 
 When lessons from a project become generally useful, port them back here as templates, examples, or knowledge notes.
-
